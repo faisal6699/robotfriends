@@ -3,10 +3,10 @@ import React from 'react';
 const Card = ({ id,name,email}) => {
 
 	return (
-		<div className="bg-light-green dib br1 pa1 ma1 grow bw2 shadow-3">
-			<img alt='robots' src={`https://robohash.org/${id}?100*100`}/>
+		<div className="tc grow bg-light-green br3 pa3 ma2 dib bw2 shadow-5">
+			<img alt='robots' src={`https://robohash.org/${id}` } className='w-50'/>
 			<div>
-				<h2>{name}</h2>
+				<h5>{name}</h5>
 				<p>{email}</p>
 			</div>
 		</div>
