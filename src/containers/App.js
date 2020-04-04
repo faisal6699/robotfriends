@@ -1,7 +1,7 @@
 import React ,{Component}from 'react';
-import CardList from './CardList';
-import SearchField from './SearchField';
-import Scroll from './Scroll';
+import CardList from '../Components/CardList';
+import SearchField from '../Components/SearchField';
+import Scroll from '../Components/Scroll';
 import './App.css';
 
 class App extends Component{
@@ -26,12 +26,14 @@ class App extends Component{
 
 
 	render(){
-		const filterArray = this.state.robots.filter(robot =>{
+		const { robots, searchfield} = this.state;
+		
+		const filterArray = robots.filter(robot =>{
 
-			return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+			return robot.name.toLowerCase().includes(searchfield.toLowerCase());
 		})
 
-		if(this.state.robots.length === 0){
+		if(!robots.length){
 			return <h1>loading</h1>
 		}
 
