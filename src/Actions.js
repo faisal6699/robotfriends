@@ -14,7 +14,8 @@
 
 	export const requestRobots = () => (dispatch) => {
 		dispatch({ type: REQUEST_ROBOTS_PENDING });
-		apiCall('https://obscure-ocean-25717.herokuapp.com/')
+		fetch('https://obscure-ocean-25717.herokuapp.com/')
+			.then(response => response.json())
 	  		.then(data =>{
 					
 					dispatch( { type: REQUEST_ROBOTS_SUCCESS, payload: data })
