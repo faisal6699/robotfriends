@@ -4,7 +4,9 @@
 		REQUEST_ROBOTS_SUCCESS,
 		REQUEST_ROBOTS_FAILED
 		} from './Constants.js';
-
+	
+	import {apiCall} from './api/api'
+		
 	export const setSearchField = (text) => ({
 		type: CHANGE_SEARCH_FIELD,
 		payload: text
@@ -12,10 +14,12 @@
 
 	export const requestRobots = () => (dispatch) => {
 		dispatch({ type: REQUEST_ROBOTS_PENDING });
-		const newLocal = 'https://jsonplaceholder.typicode.com/users';
-		fetch(newLocal)
-	  		.then(response => response.json())
-	  		.then(data => dispatch( { type: REQUEST_ROBOTS_SUCCESS, payload: data }))
+		apiCall('https://jsonplaceholder.typicode.com/users')
+	  		.then(data =>{
+					
+					dispatch( { type: REQUEST_ROBOTS_SUCCESS, payload: data })
+
+			  })
 	  		.catch(error => dispatch ({ type: REQUEST_ROBOTS_FAILED, payload: error }));
 	}
 
