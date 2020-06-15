@@ -14,7 +14,7 @@
 
 	export const requestRobots = () => (dispatch) => {
 		dispatch({ type: REQUEST_ROBOTS_PENDING });
-		apiCall('https://jsonplaceholder.typicode.com/users')
+		apiCall('https://obscure-ocean-25717.herokuapp.com/')
 	  		.then(data =>{
 					
 					dispatch( { type: REQUEST_ROBOTS_SUCCESS, payload: data })
